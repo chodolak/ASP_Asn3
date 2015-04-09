@@ -1,16 +1,22 @@
-﻿(function () {
+﻿(function ()
+{
     var app = angular.module("gsreport", []);
-
+    //Michael Chodolak
     var ReportController = function ($scope, $http) {
 
+        //Go to a3.chodolak.com's api with port 80
         var host = "a3.chodolak.com";
         var port = "80";
 
+        //Puts in the correct url with token and api
         var baseURL = "http://" + host + ":" + port + "/";
         var loginURL = baseURL + "Token";
         var apiURL = baseURL + "api/Report/";
 
-        $scope.performLogin = function () {
+        //Preforms the login
+        $scope.performLogin = function ()
+        {
+
             var data = "&grant_type=password&" + "username=" + $scope.username + "&password=" + $scope.password;
 
             $http({
@@ -29,7 +35,9 @@
                 });
         }
 
-        var getMonthYear = function () {            
+        //Get the year
+        var getMonthYear = function ()
+        {
             $http.get(apiURL + "getyear")
             .success(function (response) {
                 var json = JSON.stringify(response);
@@ -39,7 +47,9 @@
             });
         }
 
-        $scope.loadReport = function () {
+        //Loads the report
+        $scope.loadReport = function ()
+        {
             var month = $scope.selectedMonth;
             var yearID = $scope.selectedYear;
             if (typeof month === "undefined" || typeof yearID === "undefined") { return; }
@@ -56,37 +66,41 @@
             $scope.currentdate = m_names[d.getMonth()] + " " + d.getDate() + "/" + d.getFullYear();
         }
 
-        var retrieveReport = function (monthNum, yearID) {
+        //Retrieves info for report
+        var retrieveReport = function (monthNum, yearID)
+        {
             $http.get(apiURL + "getReport?monthnum=" + monthNum + "&yearid=" + yearID)
                 .success(function (response) {
-
-                    $scope.statusopen = response.statusOpen;
-                    $scope.statusclosed = response.statusClosed;
-                    $scope.statusreopened = response.statusReopened;
-
-                    $scope.programcrisis = response.programCrisis;
-                    $scope.programcourt = response.programCourt;
-                    $scope.programsmart = response.programSMART;
-                    $scope.programdvu = response.programDVU;
-                    $scope.programmcfd = response.programMCFD;
-
+                    //Gender
                     $scope.gendermale = response.genderMale;
                     $scope.genderfemale = response.genderFemale;
                     $scope.gendertrans = response.genderTrans;
 
+                    //Age
                     $scope.age24_65 = response.age24_65;
                     $scope.age18_25 = response.age18_25;
                     $scope.age12_19 = response.age12_19;
                     $scope.age13 = response.age13;
                     $scope.age64 = response.age64;
 
+                    //Status
+                    $scope.statusopen = response.statusOpen;
+                    $scope.statusclosed = response.statusClosed;
+                    $scope.statusreopened = response.statusReopened;
+
+                    //Program
+                    $scope.programcrisis = response.programCrisis;
+                    $scope.programcourt = response.programCourt;
+                    $scope.programsmart = response.programSMART;
+                    $scope.programdvu = response.programDVU;
+                    $scope.programmcfd = response.programMCFD;
+
                     $scope.showreport = true;
                 });
         }
-
         $scope.showlogin = true;
     };
 
-
+    //Connects controller
     app.controller("ReportController", ["$scope", "$http", ReportController]);
 }());
