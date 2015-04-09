@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "RemoveRole2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron">
+    <p>
+        @Html.ActionLink("<< Manage Roles", "ManageRoles")
+    </p>
+    <h2>Choose a Role to Remove</h2>
+    <p>
+        @using (Html.BeginForm("RemoveUserFromRoleCommit", "Admin"))
+        {
+            <fieldset>
+                @Html.Hidden("userid", (object)ViewBag.UserId.ToString())
+                Roles
+                @Html.DropDownList("Roles")
+                <br />
+                <input type="submit" value="Remove Role" />
+            </fieldset>
+        }
+    </p>
+    @Html.ActionLink("Add User To Role", "AddUserToRole")
+</div>

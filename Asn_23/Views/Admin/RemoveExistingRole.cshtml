@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Remove Existing Role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Remove Existing Role</h2>
+<div class="jumbotron">
+    <p>
+        @Html.ActionLink("<< Manage Roles", "ManageRoles")
+    </p>
+    <h2>Choose a Role to Remove</h2>
+    <p>
+        @if (ViewBag.Message != null)
+        {
+            string message = ViewBag.Message;
+            @message;
+        }
+        @using (Html.BeginForm("RemoveExistingRoleCommit", "Admin"))
+        {
+            <fieldset>
+                @Html.Label("Roles")
+                @Html.DropDownList("Roles")
+                <input type="submit" value="Remove Role" />
+            </fieldset>
+        }
+    </p>
+    @Html.ActionLink("Add New Roles", "AddNewRole")
+</div>

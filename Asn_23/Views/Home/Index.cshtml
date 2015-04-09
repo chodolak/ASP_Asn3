@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "The Good Samaritan";
+}
+
+<div class="jumbotron">
+    <h1>The Good Samaritan</h1>
+    <p class="lead">By Michael Chodolak, Edwin Pham, and Henry Tan.</p>
+    @using Microsoft.AspNet.Identity
+    @if (Request.IsAuthenticated)
+    {
+        if (User.IsInRole("Administrator"))
+        {
+            <p>
+                <a href="Client/" class="btn btn-primary btn-lg">Manage Client Data</a>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <a href="MVCReport/" class="btn btn-primary btn-lg">Generate Reports</a>
+                <br/><br/>
+                <a href="Admin/ManageUsers" class="btn btn-primary btn-lg">Manage Users</a>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <a href="Admin/ManageRoles" class="btn btn-primary btn-lg">Manage Roles</a>
+            </p>
+        }
+        else if (User.IsInRole("Worker"))
+        {
+            <p>
+                <a href="Client/" class="btn btn-primary btn-lg">Manage Client Data</a>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <a href="MVCReport/" class="btn btn-primary btn-lg">Generate Reports</a>
+            </p>
+        }
+        else if (User.IsInRole("Reporter"))
+        {
+            <p>
+                <a href="MVCReport/" class="btn btn-primary btn-lg">Generate Reports</a>
+            </p>
+        }
+    }
+    else
+    {
+    <p>
+        <a href="Account/Register" class="btn btn-primary btn-lg">Register</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="Account/Login" class="btn btn-primary btn-lg">Log In</a>
+    </p>
+    }
+</div>

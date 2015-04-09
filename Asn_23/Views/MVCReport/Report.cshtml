@@ -1,0 +1,258 @@
+﻿
+@{
+    ViewBag.Title = "Month End Statistics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-top:20px;min-width:750px;">
+    <div class="text-center">
+        @Html.ActionLink("<< Back", "Index")
+    </div>
+    <div class="jumbotron">
+        <div><p class="text-center">MONTH END STATISTICS</p></div>
+        <p>Report Date: @ViewBag.currentdate</p>
+        <!--BEGIN REPORT FOR MONTH/YEAR SECTION-->
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="col-sm-4">
+                    REPORT FOR
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            MONTH
+                        </div>
+                        <div class="col-sm-6">
+                            @ViewBag.month
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            YEAR
+                        </div>
+                        <div class="col-sm-6">
+                            @ViewBag.year
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END REPORT FOR MONTH/YEAR SECTION-->
+    </div>
+
+    <!--Status Section-->
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>Status</h3>
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    Open
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Closed
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Reopened
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.statusopen
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.statusclosed
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.statusreopened
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END STATUS SECTION-->
+    <hr />
+    <!--Program Section-->
+    <div class="row">
+        <!--Program column-->
+        <div class="col-sm-4">
+            <h3>Program</h3>
+        </div>
+        <!--Attributes column-->
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    Crisis
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Court
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    SMART
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    DVU
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    MCFD
+                </div>
+            </div>
+        </div>
+        <!--Values column-->
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.programcrisis
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.programcourt
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.programsmart
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.programdvu
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.programmcfd
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END STATUS SECTION-->
+    <hr />
+    <!--GENDERS SECTION-->
+    <div class="row">
+        <!--Gender column-->
+        <div class="col-sm-4">
+            <h3>Gender</h3>
+        </div>
+        <!--Attributes column-->
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    Female
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Male
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Trans
+                </div>
+            </div>
+        </div>
+        <!--Values column-->
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.genderfemale
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.gendermale                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.gendertrans
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END GENDER SECTION-->
+    <hr />
+    <!--AGE SECTION-->
+    <div class="row">
+        <!--Gender column-->
+        <div class="col-sm-4">
+            <h3>Age</h3>
+        </div>
+        <!--Attributes column-->
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    Adult >24 < 65
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Youth >18 < 25
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Youth >12 < 19
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Child < 13
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    Senior > 64
+                </div>
+            </div>
+        </div>
+        <!--Values column-->
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.age24_65
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.age18_25
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.age12_19
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.age13
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 text-right">
+                    @ViewBag.age64
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END AGE SECTION-->
+</div>
